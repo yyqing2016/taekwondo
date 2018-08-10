@@ -61,6 +61,11 @@ ios/Pods/
 
 android/app/src/main/assets/
 
+shared/
+
+ios/Podfile.lock
+ios/sansi.xcodeproj/project.pbxproj
+
 .vscode/
 
 package-lock.json

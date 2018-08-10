@@ -6,129 +6,92 @@ import {
     StyleSheet,
     TouchableOpacity,
     Image,
+    Dimensions,
+    ImageBackground
 } from 'react-native';
 import { connect } from 'react-redux';
-import { LS } from '../../locales/localized-strings';
-import { STColor } from '../../share/styles';
-import BasisPageHeard from '../BasisPageHeard/BasisPageHeard';
-import { Button } from '../Button/Button';
+import { TaekwondoColor } from '../../share/styles';
+import images from '../../assests/images';
+import { SCREEN_WIDTH, SCREEN_HEIGHT, SMALLEST_BORDER_WIDTH } from '../../lib/platform';
+import { Button } from '../TButton/Button';
 
-class LoginView extends Component {
+class TLoginView extends Component {
+
+    static navigationOptions = () => (
+        {
+            header: null
+        })
     constructor(props) {
         super(props);
     }
 
-    doLogin() {
-        console.log(this.state);
-    }
-
-    setStateValue(state, value) {
-        this.setState({ [state]: value })
-    }
-
     render() {
-        const { phoneNumber , password } = this.props;
-        const { navigate }  = this.props.navigation;
         return (
-            <View style={styles.loginWrap}>
-                <BasisPageHeard />
-                <TextInput
-                autoCapitalize='none'
-                    placeholderTextColor={STColor.INPUT_PLEACEHOLDER_COLOR}
-                    placeholder={LS.t.login.placeholder.phoneNum}
-                    style={styles.input}
-                    value={phoneNumber}
-                    underlineColorAndroid={'transparent'}
-                    onChangeText={(text) => this.props.updateProps({ phoneNumber: text })}
-                />
-                <TextInput
-                    placeholderTextColor={STColor.INPUT_PLEACEHOLDER_COLOR}
-                    placeholder={LS.t.login.placeholder.password}
-                    style={styles.input}
-                    value={password}
-                    secureTextEntry
-                    underlineColorAndroid={'transparent'}
-                    onChangeText={(text) => this.props.updateProps({ password: text })}
-                />
-                <TouchableOpacity
-                    onPress={() => {
-                        this.props.navigation.navigate('FindPasswordView');
-                    }}
-                    style={styles.linkTextWrap}
-                >
-                    <Text style={styles.linkText}>
-                        {LS.t.login.link.forgetPassword}
-                    </Text>
-                </TouchableOpacity>
-                <Button
-                    wrap={[styles.buttonWrap, styles.buttonLogin]}
-                    size={17}
-                    full
-                    click={this.props.login.bind(this)}
-                    title={LS.t.login.button.login}
-                />
-                <Button
-                    wrap={styles.buttonWrap}
-                    title={LS.t.login.button.register}
-                    size={17}
-                    click={this.props.navigation.navigate.bind(this, 'RegisterView')}
-                />
-            </View>
+            <ImageBackground style={styles.bg} source={images.bgImage}>
+                <View style={styles.loginWrap}>
+                    <View style={styles.topFontWrap}>
+                        <Text style={styles.text}>TAP Your Card</Text>
+                        <Text style={styles.text}>OR</Text>
+                    </View>
+                    <View style={styles.form}>
+                        <TextInput placeholderTextColor={TaekwondoColor.INPUT_PLACEHOLDER_BLUE} underlineColorAndroid={'transparent'} style={styles.input} placeholder='enter branch code' />
+                        <Button size={14} full title={'START'}></Button>
+                    </View>
+                </View>
+            </ImageBackground>
+
         );
     }
 }
 
 const styles = StyleSheet.create({
+    bg: {
+        width: SCREEN_WIDTH,
+        height: SCREEN_HEIGHT
+    },
     loginWrap: {
         flex: 1,
-        paddingHorizontal: 30,
-        backgroundColor: 'white',
+        justifyContent: 'space-between',
+    },
+    form: {
+        height: 126,
+        width: '100%',
+        flexDirection: 'column',
+        marginBottom: 60,
+        paddingHorizontal: 66,
+        fontSize: 12,
     },
     input: {
-        textAlign: 'right',
-        borderBottomWidth: 1,
-        borderBottomColor: STColor.INPUT_LINE_COLOR,
-        marginTop: 32,
-        // borderWidth: 1,
-        fontSize: 15,
-        height: 42,
+        borderWidth: SMALLEST_BORDER_WIDTH,
+        height: 44,
+        paddingLeft: 10,
+        borderColor: TaekwondoColor.INPUT_BORDER_BLUE,
+        marginBottom: 38,
+        borderRadius: 2,
     },
-    linkTextWrap: {
-        marginTop: 42,
+    text: {
+        color: 'white',
+        fontSize: 14,
+        textAlign:'center',
     },
-    linkText: {
-        marginTop: 42,
-        color: STColor.MAIN_GREEN,
-        textAlign: 'center',
-        textDecorationLine: 'underline',
+    topFontWrap: {
+        alignSelf: 'center',
+        height: 60,
+        justifyContent: 'space-between',
+        marginTop: 210,
     },
-    buttonLogin: {
-        marginTop: 64,
-        marginBottom: 18,
-    },
+
 });
 
 function mapStateTopProps(state) {
-    const { userName , password } = state.login;
-    const { login } = state.app;
-    return {userName , password , login};
+
+    return {};
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        login(params){
-            dispatch({
-                type: 'login/login',
-                payload: params
-            })
-        },
-        updateProps(params){
-            dispatch({
-                type: 'login/updateProps',
-                payload: params
-            })
-        }
+
     }
 }
 
-export default connect(mapStateTopProps, mapDispatchToProps)(LoginView);
+export default connect(mapStateTopProps, mapDispatchToProps)(TLoginView);

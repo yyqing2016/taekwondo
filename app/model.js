@@ -1,4 +1,4 @@
-import login from './component/Login/model';
+// import login from './component/Login/model';
 export default {
-    login
+    // login
 }

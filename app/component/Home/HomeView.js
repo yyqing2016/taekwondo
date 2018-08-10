@@ -1,184 +1,163 @@
-import React, { Component } from 'react'
-
+import React, { Component } from 'react';
 import {
     View,
     Text,
-    Image,
+    TextInput,
     StyleSheet,
+    TouchableOpacity,
+    Image,
+    Dimensions,
     ImageBackground,
-    Modal
-} from 'react-native'
+    ScrollView
+} from 'react-native';
+import { connect } from 'react-redux';
+import { TaekwondoColor } from '../../../share/styles';
+import images from '../../../assests/images';
+import { SCREEN_WIDTH, SCREEN_HEIGHT, SMALLEST_BORDER_WIDTH } from '../../../lib/platform';
+import { Button } from '../../TButton/Button';
+import OngoingClassComponentView from '../OngoingClassComponent/OngoingClassComponentView';
+import UpcomingClassesComponetView from '../UpcomingClassesComponet/UpcomingClassesComponetView';
+import EventsComponentView from '../EventsComponent/EventsComponentView';
+import { getCompletePictureAddress } from '../../../lib/strs';
+import StudentCheckInDetailView from '../StudentCheckInDetail/StudentCheckInDetailView';
 
-import { connect } from 'react-redux'
-import images from '../../assests/images';
-import { LS } from '../../locales/localized-strings';
-import { STColor } from '../../share/styles';
-import { SCREEN_WIDTH } from '../../lib/platform';
-import CardWrap from '../CardWrap/CardWrap'
-import { Button } from '../Button/Button';
-import TodoListPanel from './TodoListPanel/TodoListPanel';
-import PassengersList from './PassengersList/PassengersList';
+class THomeView extends Component {
 
-class HomeView extends Component {
-
+    static navigationOptions = () => (
+        {
+            header: null
+        })
     constructor(props) {
         super(props);
-        this.state = {
-            topTableOnline: false
-        }
-    }
-
-    toggleTopTableStatus() {
-        this.setState({
-            topTableOnline: !this.state.topTableOnline
-        })
-    }
-
-    showOrderRequest(){
-        return <TodoListPanel></TodoListPanel>
-    //    return <PassengersList></PassengersList>
-    }
-
-    showTopTable() {
-        return <View style={styles.topTableWrap}>
-            <View style={[styles.topTableItemOn, styles.topTableItem, this.state.topTableOnline ? styles.topTableItemWrapFocus : '']}>
-                <Text onPress={() => this.toggleTopTableStatus()} style={[this.state.topTableOnline ? styles.topTableItemFocus : styles.topTableItemBlur]}>
-                    fds
-            </Text>
-            </View>
-            <View style={[styles.topTableItemOff, styles.topTableItem, this.state.topTableOnline ? '' : styles.topTableItemWrapFocus]}>
-                <Text onPress={() => this.toggleTopTableStatus()} style={[this.state.topTableOnline ? styles.topTableItemBlur : styles.topTableItemFocus]}>
-                    fgsdf</Text>
-            </View>
-        </View>
-    }
-
-
-    showWaiting() {
-        return <CardWrap>
-            <Image style={styles.waitImage} source={images.clockGreen} />
-            <Text style={styles.waitText}>{LS.t.home.label.waitingTip}</Text>
-        </CardWrap>
     }
 
     render() {
         return (
-            <View style={styles.homeWrap}>
-                {this.state.topTableOnline && this.showWaiting()}
-                {!this.state.topTableOnline && this.showOrderRequest()}
-                <ImageBackground style={styles.topImage} source={images.topImage}>
-                    {this.showTopTable()}
+            <View style={{ flex: 1 }}>
+            <StudentCheckInDetailView/>
+                <ImageBackground style={styles.bg} source={images.homeBgImage}>
+                    <View>
+                        <View style={styles.tipFontView}>
+                            <Image style={styles.topAddress} source={images.address} />
+                            <Text style={styles.topFont}>3/F, Concord Commercial Building, 155-157 King’s Road, North Point</Text>
+                        </View>
+                        <View style={styles.tipFontView}>
+                            <Image style={styles.topPhone} source={images.phone} />
+                            <Text style={styles.topFont}>+852   8888 8888</Text>
+                        </View>
+                    </View>
+                    <Text style={styles.tipDate}>Monday ,  Jan 1, 2018</Text>
                 </ImageBackground>
-                <View style={styles.bottomImage}>
-                    <Image style={styles.imageLocation} source={images.location} />
-                    <Image style={styles.imagecustomService} source={images.customService} />
-                </View>
+                <ScrollView style={{ flex: 1 }}>
+                    <View>
+                        <Text style={styles.bigTitle}>Events</Text>
+                        <EventsComponentView />
+                        <EventsComponentView />
+                        <EventsComponentView />
+                        <View style={styles.bigTitleView}>
+                            <View style={styles.arrowWrap}>
+                                <Image style={styles.arrow} source={images.arrowLeft} />
+                            </View>
+                            <View>
+                                <Text style={styles.bigTitleFont}>Ongoing Class</Text>
+                                <Text style={styles.bigTitleViewSmallText}>Room 1</Text>
+                            </View>
+                            <View style={styles.arrowWrap}>
+                                <Image style={styles.arrow} source={images.arrowRight} />
+                            </View>
+                        </View>
+                        <OngoingClassComponentView />
+                        <Text style={styles.bigTitle}>Upcoming Classes</Text>
+                        <UpcomingClassesComponetView />
+                    </View>
+                </ScrollView>
             </View>
-        )
+
+
+        );
     }
 }
 
 const styles = StyleSheet.create({
-    homeWrap: {
-        backgroundColor: "white",
-        flex: 1,
+    bg: {
+        width: SCREEN_WIDTH,
+        // height: 95,
+        justifyContent: 'space-between',
+
     },
-    topTableWrap: {
-        color: STColor.MAIN_GREEN,
-        height: 40,
+    tipFontView: {
+        width: "50%",
+        alignSelf: 'flex-end',
+        marginTop: 8,
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    topFont: {
+        fontSize: 10,
+        color: 'white',
+    },
+    tipDate: {
+        textAlign: 'center',
+        color: TaekwondoColor.MAIN_BLUE,
+        fontSize: 12,
+        paddingBottom: 6,
+    },
+    bigTitle: {
+        textAlign: 'center',
+        color: 'white',
+        backgroundColor: TaekwondoColor.TITLE_BG_COLOR,
+        padding: 5,
+        fontSize: 12,
+    },
+    bigTitleView: {
+        backgroundColor: TaekwondoColor.TITLE_BG_COLOR,
+        padding: 5,
         flexDirection: 'row',
         justifyContent: 'center',
-        alignItems: 'center'
-    },
-    topTableItemWrapFocus: {
-        backgroundColor: 'white',
-    },
-    topTableItemFocus: {
-        color: STColor.MAIN_GREEN,
-        borderRadius: 4,
-
-    },
-    topTableItemBlur: {
-        color: "white",
-        borderRadius: 4,
-    },
-    topTableItemOn: {
-        borderTopLeftRadius: 4,
-        borderBottomLeftRadius: 4,
-    },
-    topTableItemOff: {
-        borderTopRightRadius: 4,
-        borderBottomRightRadius: 4,
-    },
-    topTableItem: {
-        fontSize: 14,
-        paddingHorizontal: 15,
-        paddingVertical: 5,
-        borderWidth: 1,
-        borderColor: 'white',
-    },
-    topImage: {
-        width: SCREEN_WIDTH
-    },
-    imageLocation: {
-        width: 60,
-        height: 60,
-        marginLeft: 6,
-    },
-    waitImage: {
-        width: 20,
-        height: 20,
-        marginRight: 8,
-    },
-    waitText:{
-      color:STColor.MAIN_GREEN
-    },
-    imagecustomService: {
-        width: 48,
-        height: 48,
-        marginRight: 12,
-        marginTop: 8,
-    },
-    bottomImage: {
-        height: 60,
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        position: 'absolute',
-        left: 0,
-        right: 0,
-        marginBottom: 8,
-        bottom: 8,
-    },
-    waitingTipWrap: {
-        zIndex: 100,
-        position: 'absolute',
-        top: 40,
-        left: 12,
-        flexDirection: 'row',
-        height: 62,
-        justifyContent: "center",
         alignItems: 'center',
-        borderWidth: 1,
-        flex: 1,
-        width: (SCREEN_WIDTH - 24),
-        shadowColor: 'black',
-        shadowOffset: { h: 10, w: 0 },
-        shadowRadius: 3,
-        shadowOpacity: 0.8,
-    }
-})
+    },
+    bigTitleFont: {
+        textAlign: 'center',
+        color: 'white',
+        fontSize: 12,
+        paddingHorizontal: 30,
+    },
+    bigTitleViewSmallText: {
+        fontSize: 10,
+        textAlign: 'center',
+        color: 'white',
+    },
+    topAddress: {
+        width: 9,
+        height: 11,
+        marginRight: 10,
+    },
+    topPhone: {
+        width: 11,
+        height: 11,
+        marginRight: 10,
+    },
+    arrowWrap:{
+        padding:10,
+    },
+    arrow: {
+        width: 4,
+        height: 8,
+    },
+
+
+
+});
 
 function mapStateTopProps(state) {
-    return {}
+
+    return {};
 }
 
 function mapDispatchToProps(dispatch) {
-    return {}
+    return {
+
+    }
 }
 
-
-
-
-
-export default connect(mapStateTopProps, mapDispatchToProps)(HomeView);
+export default connect(mapStateTopProps, mapDispatchToProps)(THomeView);

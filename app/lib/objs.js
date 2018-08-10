@@ -14,3 +14,17 @@ export function deepMerge(target, src) {
     }
     return target
 }
+
+
+export function array_indexBy(array, test, fromIndex) {
+    if (array) {
+        const size = array.length
+        if (fromIndex == null)
+            fromIndex = 0
+        for (let i = fromIndex; i < size; i++) {
+            if (test(array[i]))
+                return i
+        }
+    }
+    return -1
+}

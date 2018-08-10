@@ -1,77 +1,36 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent } from 'react'
 import {
   StackNavigator,
   TabNavigator,
   TabBarBottom,
   addNavigationHelpers,
   NavigationActions,
-} from 'react-navigation';
-import { connect } from 'react-redux';
+} from 'react-navigation'
+import { connect } from 'react-redux'
 
-import HomeView from './component/Home/HomeView';
-import LoginView from './component/Login/LoginView'
-import RegisterView from './component/Register/RegisterView'
-import FindPasswordView from './component/FindPassword/FindPasswordView'
-import PassengersDetailListView from './component/PassagersDetailList/PassagersDetailListView'
-import TripHistoryView from './component/TripHistory/TripHistoryView'
-import Login from './component/login'
-import QRCodeView  from './component/QRCode/QRCode'
-import UserInfoView from './component/UserInfo/UserInfoView'
-import SettingView from './component/Setting/SettingView'
-import ChangePasswordView from './component/ChangePassword/ChangePasswordView'
-import VehicleRoutesView from './component/VehicleRoutes/VehicleRoutesView'
-import NotificationView from './component/Notification/NotificationView'
-import SuggestionView from './component/Suggestion/SuggestionView'
-import About from './component/About/AboutView'
-import HelpView from './component/Help/HelpView'
-import ImprovePersonalDataView from './component/ImprovePersonalData/ImprovePersonalDataView'
-import PassengersHomePageView from './component/PassengersHomePage/PassengersHomePageView'
-import PassengerTripHistoryView from './component/PassengerTripHistory/PassengerTripHistoryView'
-import PassengerTripHistoryDetailView from './component/PassengerTripHistory/PassengerTripHistoryDetail/PassengerTripHistoryDetailView'
+import TLoginView from './component/Login/LoginView'
+// import THomeView from './component/Home/HomeView'
+// import LoginByUserNameView from './component/LoginByUserName/LoginByUserNameView'
+// import TodoListView from './component/TodoList/TodoListView'
+// import ProfileView from './component/Profile/ProfileView'
+
 
 
 const MainNavigator = StackNavigator({
-    // HomeView : {screen : HomeView },
-    LoginView : {screen : LoginView },
-    // RegisterView : {screen : RegisterView },
-    // FindPasswordView : {screen : FindPasswordView },
-    // PassengersDetailListView:{screen:PassengersDetailListView},
-    // TripHistoryView: {screen:TripHistoryView},
-    // Login: {screen:Login},
-    // QRCodeView: {screen:QRCodeView},
-    // UserInfoView:{screen:UserInfoView},
-    // SettingView:{screen:SettingView},
-    // ChangePasswordView:{screen:ChangePasswordView},
-    // VehicleRoutesView:{screen:VehicleRoutesView},
-    // NotificationView:{screen:NotificationView},
-    // SuggestionView:{screen:SuggestionView},
-    // About:{screen:About},
-    // HelpView:{screen:HelpView},
-    // ImprovePersonalDataView:{screen:ImprovePersonalDataView},
-    // PassengersHomePageView:{screen:PassengersHomePageView},
-    // PassengerTripHistoryDetailView:{screen:PassengerTripHistoryDetailView},
-    // PassengerTripHistoryView:{screen:PassengerTripHistoryView}
-},{
-    initialRouteName: 'LoginView', 
-    // navigationOptions: {  
-    //     header: {  
-    //         backTitle: '返回', 
-    //         style: {
-    //             backgroundColor: '#fff'
-    //         },
-    //         titleStyle: {
-    //             color: 'green'
-    //         }
-    //     },
-    //     cardStack: {
-    //         gesturesEnabled: true
-    //     }
-    // }, 
-    // mode: 'modal',  
-    // headerMode: 'screen', 
-    // onTransitionStart: ()=>{ console.log('导航栏切换开始'); },  // 回调
-    // onTransitionEnd: ()=>{ console.log('导航栏切换结束'); }  // 回调
-})
+    TLoginView: { screen: TLoginView },
+    // LoginByUserNameView:{screen:LoginByUserNameView},
+    // THomeView: { screen: THomeView },
+    // ProfileView:{screen:ProfileView},
+    // TodoListView:{screen:TodoListView},
+},
+{
+    headerMode: "float",
+}, {
+    navigationOptions: {
+        header: null,
+    }
+}
+)
 
 @connect(({ router }) => ({ router }))
 class RootScene extends PureComponent{
@@ -81,11 +40,9 @@ class RootScene extends PureComponent{
 
     render(){
         const { dispatch , router } = this.props;
-        const navigation = addNavigationHelpers({ dispatch , state: router})
+        // const navigation = addNavigationHelpers({ dispatch , state: router})
         return (
-                <MainNavigator 
-                    navigation = { navigation }
-                />
+                <MainNavigator />
         )
     }
 }
