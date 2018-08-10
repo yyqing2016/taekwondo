@@ -15,13 +15,6 @@ class NFCComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            supported: true,
-            enabled: false,
-            isWriting: false,
-            urlToWrite: 'www.google.com',
-            rtdType: RtdType.URL,
-            parsedText: null,
-            tag: {},
         }
     }
 
@@ -39,7 +32,7 @@ class NFCComponent extends Component {
         if (this._stateChangedSubscription) {
             this._stateChangedSubscription.remove();
         }
-        ()=>_stopDetection()
+        this._stopDetection()
     }
 
     render() {
@@ -109,6 +102,7 @@ class NFCComponent extends Component {
 
         let text = this._parseText(tag);
         this.setState({parsedText: text});
+        this._stopDetection()
     }
 
     _startDetection = () => {
