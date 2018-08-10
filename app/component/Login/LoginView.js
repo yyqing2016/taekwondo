@@ -59,7 +59,6 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         marginBottom: 60,
         paddingHorizontal: 66,
-        fontSize: 12,
     },
     input: {
         borderWidth: SMALLEST_BORDER_WIDTH,
