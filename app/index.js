@@ -14,10 +14,12 @@ import TLoginView from './component/Login/LoginView'
 // import TodoListView from './component/TodoList/TodoListView'
 // import ProfileView from './component/Profile/ProfileView'
 import Test from './component/Test'
+import NFCComponent from './common/NFCComponent'
 
 
 
 const MainNavigator = StackNavigator({
+    NFCComponent:{screen:NFCComponent},
     Test:{screen:Test},
     TLoginView: { screen: TLoginView },
     // LoginByUserNameView:{screen:LoginByUserNameView},
