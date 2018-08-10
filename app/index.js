@@ -13,10 +13,12 @@ import TLoginView from './component/Login/LoginView'
 // import LoginByUserNameView from './component/LoginByUserName/LoginByUserNameView'
 // import TodoListView from './component/TodoList/TodoListView'
 // import ProfileView from './component/Profile/ProfileView'
+import Test from './component/Test'
 
 
 
 const MainNavigator = StackNavigator({
+    Test:{screen:Test},
     TLoginView: { screen: TLoginView },
     // LoginByUserNameView:{screen:LoginByUserNameView},
     // THomeView: { screen: THomeView },

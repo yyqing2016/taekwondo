@@ -14,6 +14,7 @@ import { TaekwondoColor } from '../../share/styles';
 import images from '../../assests/images';
 import { SCREEN_WIDTH, SCREEN_HEIGHT, SMALLEST_BORDER_WIDTH } from '../../lib/platform';
 import { Button } from '../TButton/Button';
+import NfcManager, {NdefParser} from 'react-native-nfc-manager'
 
 class TLoginView extends Component {
 
@@ -23,6 +24,10 @@ class TLoginView extends Component {
         })
     constructor(props) {
         super(props);
+    }
+
+    componentDidMount(){
+        console.log(NfcManager, NdefParser)
     }
 
     render() {
