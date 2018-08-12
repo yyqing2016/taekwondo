@@ -1,4 +1,4 @@
-package com.sansi;
+package com.school;
 
 import android.app.Application;
 

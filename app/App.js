@@ -18,9 +18,9 @@ const app = dva({
     },
 });
 
-const SansiDriver = app.start(<App />);
+const SchoolApp = app.start(<App />);
 Object.keys(models).map(key => app.model(models[key]));
 
 
 
-AppRegistry.registerComponent('sansi', () => SansiDriver);
+AppRegistry.registerComponent('school', () => SchoolApp);
