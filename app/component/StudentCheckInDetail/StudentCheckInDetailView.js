@@ -3,10 +3,10 @@ import React, { Component } from 'react';
 import { View, StyleSheet, Text, Modal, TouchableHighlight, Image } from 'react-native';
 
 import { connect } from 'react-redux';
-import { SCREEN_WIDTH, SCREEN_HEIGHT, SMALLEST_BORDER_WIDTH } from '../../../lib/platform';
-import images from '../../../assests/images';
+import { SCREEN_WIDTH, SCREEN_HEIGHT, SMALLEST_BORDER_WIDTH } from '../../lib/platform';
+import images from '../../assests/images';
 import TModalView from '../TModal/TModalView';
-import { TaekwondoColor } from '../../../share/styles';
+import { TaekwondoColor } from '../../share/styles';
 
 class StudentCheckInDetailView extends Component {
     constructor(props) {

@@ -39,6 +39,10 @@ const images = {
     search: require('./images/ic_shou.png'),
     delete: require('./images/ic_ss_del.png'),
     arrowLeftGrey: require('./images/ic_right_h.png'),
+    homeIconRed: require('./images/ic_home_a.png'),
+    homeIconBlue: require('./images/ic_home_b.png'),
+    profileIconRed: require('./images/ic_profile_a.png'),
+    profileIconBlue: require('./images/ic_profile_b.png')
     
 }
 

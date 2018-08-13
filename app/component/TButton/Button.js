@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { TouchableOpacity, StyleSheet, Text } from 'react-native';
-import { TaekwondoColor, STColor } from '../../share/styles'
+import { TaekwondoColor } from '../../share/styles'
 
 import { connect } from 'react-redux';
 

@@ -10,10 +10,10 @@ import {
     ImageBackground
 } from 'react-native';
 import { connect } from 'react-redux';
-import { TaekwondoColor } from '../../../share/styles';
-import images from '../../../assests/images';
-import { SCREEN_WIDTH, SCREEN_HEIGHT, SMALLEST_BORDER_WIDTH } from '../../../lib/platform';
-import { Button } from '../../TButton/Button';
+import { TaekwondoColor } from '../../share/styles';
+import images from '../../assests/images';
+import { SCREEN_WIDTH, SCREEN_HEIGHT, SMALLEST_BORDER_WIDTH } from '../../lib/platform';
+import { Button } from '../TButton/Button';
 import TModalView from '../TModal/TModalView';
 
 class TodoListView extends Component {
@@ -29,7 +29,7 @@ class TodoListView extends Component {
     render() {
         return (
             <View>
-                <TModalView>
+                {/* <TModalView>
                     <View style={[styles.searchTopWrap, styles.flexRow]}>
                         <View style={[styles.searchTopInputWrap, styles.flexRow]}>
                             <TextInput placeholder='Keyword' underlineColorAndroid='transparent' style={styles.input} />
@@ -55,7 +55,7 @@ class TodoListView extends Component {
                             <Button color={TaekwondoColor.MAIN_GREEN} full title='REVOKE' />
                         </View>
                     </View>
-                </TModalView>
+                </TModalView> */}
                 <View style={[styles.timeWrap]}>
                     <Text style={styles.title}>One Island South</Text>
                     <Text style={styles.secondTitle}>Sparring</Text>

@@ -1,5 +1,6 @@
 export const TaekwondoColor = {
     LIGHR_RED: "#D62629",
+    DARK_BLUE : "#30347D",
     INPUT_BORDER_BLUE: "#7F88F2",
     INPUT_PLACEHOLDER_BLUE: "#7F88F2",
     MAIN_BLUE: '#7F88F2',

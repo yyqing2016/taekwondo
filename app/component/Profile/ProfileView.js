@@ -3,14 +3,20 @@ import React, { Component } from 'react';
 import { View, StyleSheet, Text, Modal, TouchableHighlight, Image } from 'react-native';
 
 import { connect } from 'react-redux';
-import { SCREEN_WIDTH, SCREEN_HEIGHT, SMALLEST_BORDER_WIDTH } from '../../../lib/platform';
-import images from '../../../assests/images';
+import { SCREEN_WIDTH, SCREEN_HEIGHT, SMALLEST_BORDER_WIDTH } from '../../lib/platform';
+import images from '../../assests/images';
 import TModalView from '../TModal/TModalView';
-import { TaekwondoColor } from '../../../share/styles';
-import { Button } from '../../TButton/Button';
+import { TaekwondoColor } from '../../share/styles';
+import { Button } from '../TButton/Button';
 import SwitchButton from '../SwitchButton/SwitchButtonView'
 
 class ProfileView extends Component {
+    
+    static navigationOptions = () => (
+        {
+            header: null
+        })
+
     constructor(props) {
         super(props);
         this.state = {

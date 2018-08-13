@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import { View, StyleSheet, Text, Modal, TouchableHighlight, Image } from 'react-native';
 
 import { connect } from 'react-redux';
-import { SCREEN_WIDTH, SCREEN_HEIGHT } from '../../../lib/platform';
-import images from '../../../assests/images';
+import { SCREEN_WIDTH, SCREEN_HEIGHT } from '../../lib/platform';
+import images from '../../assests/images';
 
 class TModalView extends Component {
     constructor(props) {

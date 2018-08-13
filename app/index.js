@@ -1,59 +1,112 @@
 import React, { PureComponent } from 'react'
 import {
-  StackNavigator,
-  TabNavigator,
-  TabBarBottom,
-  addNavigationHelpers,
-  NavigationActions,
+    StackNavigator,
+    TabNavigator,
+    TabBarBottom,
+    addNavigationHelpers,
+    NavigationActions,
 } from 'react-navigation'
 import { connect } from 'react-redux'
 
 import TLoginView from './component/Login/LoginView'
 // import THomeView from './component/Home/HomeView'
 // import LoginByUserNameView from './component/LoginByUserName/LoginByUserNameView'
-// import TodoListView from './component/TodoList/TodoListView'
 // import ProfileView from './component/Profile/ProfileView'
 import Test from './component/Test'
 import NFCComponent from './common/NFCComponent'
+import HomeView from './component/Home/HomeView';
+import ProfileView from './component/Profile/ProfileView';
+import TabBarItem from './component/TabBarItem/TabBarItemView'
+import { TaekwondoColor } from './share/styles';
+import images from './assests/images';
+import StudentCheckInDetailView from './component/StudentCheckInDetail/StudentCheckInDetailView';
+import TodoListView from './component/TodoList/TodoListView';
 
-
+const MainTabNavigator = TabNavigator({
+    home: {
+        screen: HomeView,
+        navigationOptions: ({ navigation, pthis }) => (
+            // console.log(navigation),
+            {
+                tabBarLabel: "Home",
+                tabBarIcon: ({ focused, tintColor }) => (
+                    <TabBarItem
+                        tintColor={tintColor}
+                        focused={focused}
+                        iconStyle={{ width: 22, height: 22 }}
+                        normalImage={images.homeIconBlue}
+                        selectedImage={images.homeIconRed}
+                    />
+                )
+            })
+    },
+    profile: {
+        screen: TodoListView,
+        navigationOptions: ({ navigation, pthis }) => (
+            {
+                tabBarLabel: "Profile",
+                tabBarIcon: ({ focused, tintColor }) => (
+                    <TabBarItem
+                        tintColor={tintColor}
+                        focused={focused}
+                        iconStyle={{ width: 17, height: 22 }}
+                        normalImage={images.profileIconBlue}
+                        selectedImage={images.profileIconRed}
+                    />
+                )
+            })
+    },
+},
+    {
+        tabBarComponent: TabBarBottom,
+        tabBarPosition: "bottom",
+        swipeEnabled: false,
+        animationEnabled: false,
+        lazy: true,
+        tabBarOptions: {
+            activeTintColor: TaekwondoColor.LIGHR_RED,
+            inactiveTintColor: TaekwondoColor.DARK_BLUE,
+        }
+    }
+)
 
 const MainNavigator = StackNavigator({
-    NFCComponent:{screen:NFCComponent},
-    Test:{screen:Test},
+    Home: { screen: MainTabNavigator },
+    NFCComponent: { screen: NFCComponent },
+    Test: { screen: Test },
     TLoginView: { screen: TLoginView },
     // LoginByUserNameView:{screen:LoginByUserNameView},
     // THomeView: { screen: THomeView },
     // ProfileView:{screen:ProfileView},
     // TodoListView:{screen:TodoListView},
 },
-{
-    headerMode: "float",
-}, {
-    navigationOptions: {
-        header: null,
+    {
+        headerMode: "float",
+    }, {
+        navigationOptions: {
+            header: null,
+        }
     }
-}
 )
 
 @connect(({ router }) => ({ router }))
-class RootScene extends PureComponent{
-    constructor(){
+class RootScene extends PureComponent {
+    constructor() {
         super();
     }
 
-    render(){
-        const { dispatch , router } = this.props;
+    render() {
+        const { dispatch, router } = this.props;
         // const navigation = addNavigationHelpers({ dispatch , state: router})
         return (
-                <MainNavigator />
+            <MainNavigator />
         )
     }
 }
 
 
-export function routerReducer(state , action = {}){
-  return MainNavigator.router.getStateForAction(action, state)
+export function routerReducer(state, action = {}) {
+    return MainNavigator.router.getStateForAction(action, state)
 }
 
 

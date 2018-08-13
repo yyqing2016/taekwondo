@@ -11,14 +11,14 @@ import {
     ScrollView
 } from 'react-native';
 import { connect } from 'react-redux';
-import { TaekwondoColor } from '../../../share/styles';
-import images from '../../../assests/images';
-import { SCREEN_WIDTH, SCREEN_HEIGHT, SMALLEST_BORDER_WIDTH } from '../../../lib/platform';
-import { Button } from '../../TButton/Button';
+import { TaekwondoColor } from '../../share/styles';
+import images from '../../assests/images';
+import { SCREEN_WIDTH, SCREEN_HEIGHT, SMALLEST_BORDER_WIDTH } from '../../lib/platform';
+import { Button } from '../TButton/Button';
 import OngoingClassComponentView from '../OngoingClassComponent/OngoingClassComponentView';
 import UpcomingClassesComponetView from '../UpcomingClassesComponet/UpcomingClassesComponetView';
 import EventsComponentView from '../EventsComponent/EventsComponentView';
-import { getCompletePictureAddress } from '../../../lib/strs';
+import { getCompletePictureAddress } from '../../lib/strs';
 import StudentCheckInDetailView from '../StudentCheckInDetail/StudentCheckInDetailView';
 
 class THomeView extends Component {
