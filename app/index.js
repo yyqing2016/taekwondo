@@ -7,9 +7,10 @@ import {
     NavigationActions,
 } from 'react-navigation'
 import { connect } from 'react-redux'
+import {View} from 'react-native'
 
 import TLoginView from './component/Login/LoginView'
-// import THomeView from './component/Home/HomeView'
+import THomeView from './component/Home/HomeView'
 // import LoginByUserNameView from './component/LoginByUserName/LoginByUserNameView'
 // import ProfileView from './component/Profile/ProfileView'
 import Test from './component/Test'
@@ -73,12 +74,12 @@ const MainTabNavigator = TabNavigator({
 
 const MainNavigator = StackNavigator({
     // TeacherHomeView:{screen:TeacherHomeView},
-    // TLoginView: { screen: TLoginView },
-    HomeView: { screen: HomeView },
+    TLoginView: { screen: TLoginView },
+    THomeView: { screen: THomeView },
     Home: { screen: MainTabNavigator },
     NFCComponent: { screen: NFCComponent },
     Test: { screen: Test },
-   
+
     // LoginByUserNameView:{screen:LoginByUserNameView},
     // THomeView: { screen: THomeView },
     // ProfileView:{screen:ProfileView},
@@ -101,9 +102,12 @@ class RootScene extends PureComponent {
 
     render() {
         const { dispatch, router } = this.props;
-        // const navigation = addNavigationHelpers({ dispatch , state: router})
+        const navigation = addNavigationHelpers({ dispatch, state: router })
         return (
-            <MainNavigator />
+            // <View>
+                <MainNavigator />
+            // </View>
+
         )
     }
 }

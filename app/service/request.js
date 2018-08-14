@@ -53,8 +53,6 @@ function request(uri, { type = 'POST', data = {} }) {
 }
 
 export function uploadImage(uri,picture){
-    // console.log("lll uri",uri)
-    // console.log("lll pic",picture)
     let formData = new FormData();
     let file = {uri: picture.url, type: 'multipart/form-data', name:picture.name};
     console.log(file)

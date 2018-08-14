@@ -9,7 +9,7 @@ import {
     TextInput,
     ScrollView,
 } from 'react-native';
-import NfcManager, {NdefParser} from 'react-native-nfc-manager'
+import NfcManager, { NdefParser } from 'react-native-nfc-manager'
 
 class NFCComponent extends Component {
     constructor(props) {
@@ -29,22 +29,25 @@ class NFCComponent extends Component {
     }
 
     componentWillUnmount() {
-        if (this._stateChangedSubscription) {
-            this._stateChangedSubscription.remove();
-        }
-        this._stopDetection()
+        // if (this._stateChangedSubscription) {
+        //     this._stateChangedSubscription.remove();
+        // }
+        // this._stopDetection()
     }
 
     render() {
         return (
-            <ScrollView style={{flex: 1}}>
+            <View>
+                <ScrollView>
                     <TouchableOpacity style={{ marginTop: 20 }} onPress={this._goToNfcSetting}>
                         <Text >(android) Go to NFC setting</Text>
                     </TouchableOpacity>
-            </ScrollView>
+                </ScrollView>
+            </View>
+
         )
     }
-    
+
     _startNfc() {
         if (Platform.OS === 'android') {
             NfcManager.getLaunchTagEvent()
@@ -68,9 +71,9 @@ class NFCComponent extends Component {
             NfcManager.onStateChanged(
                 event => {
                     if (event.state === 'on') {
-                        this.setState({enabled: true});
+                        this.setState({ enabled: true });
                     } else if (event.state === 'off') {
-                        this.setState({enabled: false});
+                        this.setState({ enabled: false });
                     } else if (event.state === 'turning_on') {
                         // do whatever you want
                     } else if (event.state === 'turning_off') {
@@ -79,7 +82,7 @@ class NFCComponent extends Component {
                 }
             )
                 .then(sub => {
-                    this._stateChangedSubscription = sub; 
+                    this._stateChangedSubscription = sub;
                     // remember to call this._stateChangedSubscription.remove()
                     // when you don't want to listen to this anymore
                 })
@@ -90,8 +93,12 @@ class NFCComponent extends Component {
     }
 
     _onTagDiscovered = tag => {
-        console.log('Tag Discovered', tag);
-        this.setState({ tag });
+        if(tag){
+            console.log('Tag Discovered', tag);
+        }
+        if(tag&&!!tag.id){
+            this.props.doSuccess(tag.id)
+        }
         let url = this._parseUri(tag);
         if (url) {
             Linking.openURL(url)
@@ -101,7 +108,7 @@ class NFCComponent extends Component {
         }
 
         let text = this._parseText(tag);
-        this.setState({parsedText: text});
+        this.setState({ parsedText: text });
         this._stopDetection()
     }
 

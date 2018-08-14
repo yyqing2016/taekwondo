@@ -21,6 +21,7 @@ import UpcomingClassesComponetView from '../UpcomingClassesComponet/UpcomingClas
 import EventsComponentView from '../EventsComponent/EventsComponentView';
 import { getCompletePictureAddress } from '../../lib/strs';
 import StudentCheckInDetailView from '../StudentCheckInDetail/StudentCheckInDetailView';
+import NFCComponent from '../../common/NFCComponent';
 
 class THomeView extends Component {
 
@@ -34,12 +35,22 @@ class THomeView extends Component {
 
     componentDidMount(){
         console.log(PixelRatio.get())
+        this.props.checkIn()
+    }
+
+    async doCheckIn(id){
+        if(!!id){
+         await  this.props.updateProps({currentStudentCheckInId:id})
+         this.props.checkIn()
+        }
+
     }
 
     render() {
         return (
             <View style={{ flex: 1 }}>
-            <StudentCheckInDetailView/>
+            {/* <StudentCheckInDetailView/> */}
+            <NFCComponent doSuccess={(id)=>this.doCheckIn(id)}/>
                 <ImageBackground style={styles.bg} source={images.homeBgImage}>
                     <View>
                         <View style={styles.tipFontView}>
@@ -161,7 +172,18 @@ function mapStateTopProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-
+        checkIn(params) {
+            dispatch({
+                type: 'home/checkIn',
+                payload: params
+            })
+        },
+        updateProps(params) {
+            dispatch({
+                type: 'home/updateProps',
+                payload: params
+            })
+        }
     }
 }
 

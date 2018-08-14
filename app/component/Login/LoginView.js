@@ -15,6 +15,7 @@ import images from '../../assests/images';
 import { SCREEN_WIDTH, SCREEN_HEIGHT, SMALLEST_BORDER_WIDTH, SCALE } from '../../lib/platform';
 import { Button } from '../TButton/Button';
 import NfcManager, { NdefParser } from 'react-native-nfc-manager'
+import NFCComponent from '../../common/NFCComponent';
 
 class TLoginView extends Component {
 
@@ -30,9 +31,18 @@ class TLoginView extends Component {
         console.log(NfcManager, NdefParser)
     }
 
+   async doLogin(id){
+        if(!!id){
+         await  this.props.updateProps({cardNumber:id})
+         this.props.login({navigation:this.props.navigation})
+        }
+
+    }
+
     render() {
         return (
             <ImageBackground style={styles.bg} source={images.bgImage}>
+            <NFCComponent doSuccess={(id)=>this.doLogin(id)} />
                 <View style={styles.loginWrap}>
                     <View style={styles.logoWrap}>
                         <Image style={styles.logo} source={images.logo} />
@@ -106,12 +116,24 @@ const styles = StyleSheet.create({
 });
 
 function mapStateTopProps(state) {
-
-    return {};
+    const { cardNumber } = state.login;
+    return { cardNumber};
 }
 
 function mapDispatchToProps(dispatch) {
     return {
+        login(params) {
+            dispatch({
+                type: 'login/login',
+                payload: params
+            })
+        },
+        updateProps(params) {
+            dispatch({
+                type: 'login/updateProps',
+                payload: params
+            })
+        }
 
     }
 }
