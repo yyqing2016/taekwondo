@@ -73,7 +73,7 @@ const MainTabNavigator = TabNavigator({
 
 const MainNavigator = StackNavigator({
     // TeacherHomeView:{screen:TeacherHomeView},
-    TLoginView: { screen: TLoginView },
+    // TLoginView: { screen: TLoginView },
     HomeView: { screen: HomeView },
     Home: { screen: MainTabNavigator },
     NFCComponent: { screen: NFCComponent },

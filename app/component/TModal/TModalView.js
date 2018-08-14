@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { View, StyleSheet, Text, Modal, TouchableHighlight, Image } from 'react-native';
 
 import { connect } from 'react-redux';
-import { SCREEN_WIDTH, SCREEN_HEIGHT } from '../../lib/platform';
+import { SCREEN_WIDTH, SCREEN_HEIGHT, SCALE } from '../../lib/platform';
 import images from '../../assests/images';
 
 class TModalView extends Component {
@@ -59,16 +59,16 @@ const styles = StyleSheet.create({
         paddingBottom: 64,
     },
     modalClose: {
-        width: 27,
-        height: 64
+        width: 81/SCALE,
+        height: 192/SCALE
     },
     contentIconWrap: {
-        width: SCREEN_WIDTH - 14 - 14,
+        width: SCREEN_WIDTH - 40/SCALE - 40/SCALE,
     },
     contentWrap: {
         width:'100%',
         backgroundColor: 'white',
-        borderRadius: 3,
+        borderRadius: 10/SCALE,
     },
 
 });

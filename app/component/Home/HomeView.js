@@ -39,7 +39,7 @@ class THomeView extends Component {
     render() {
         return (
             <View style={{ flex: 1 }}>
-            {/* <StudentCheckInDetailView/> */}
+            <StudentCheckInDetailView/>
                 <ImageBackground style={styles.bg} source={images.homeBgImage}>
                     <View>
                         <View style={styles.tipFontView}>

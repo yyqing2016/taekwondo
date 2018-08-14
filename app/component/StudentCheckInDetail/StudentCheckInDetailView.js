@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { View, StyleSheet, Text, Modal, TouchableHighlight, Image } from 'react-native';
 
 import { connect } from 'react-redux';
-import { SCREEN_WIDTH, SCREEN_HEIGHT, SMALLEST_BORDER_WIDTH } from '../../lib/platform';
+import { SCREEN_WIDTH, SCREEN_HEIGHT, SMALLEST_BORDER_WIDTH, SCALE } from '../../lib/platform';
 import images from '../../assests/images';
 import TModalView from '../TModal/TModalView';
 import { TaekwondoColor } from '../../share/styles';
@@ -29,11 +29,11 @@ class StudentCheckInDetailView extends Component {
                 <View style={[styles.flexRow, styles.infoWrap]}>
                     <Image style={styles.notice} source={images.notice} />
                     <Text style={styles.fontBlackBold}>Apri, 2018 -</Text>
-                    <View style={[styles.flexRow,styles.subscriptView]} >
+                    <View style={[styles.flexRow, styles.subscriptView]} >
                         <Text style={styles.fontBlackBold}>Unused Classes</Text>
                         <Text style={styles.fontRed}>2</Text>
                     </View>
-                    <View style={[styles.flexRow,styles.subscriptView]}>
+                    <View style={[styles.flexRow, styles.subscriptView]}>
                         <Text style={styles.fontBlackBold}>Unused Classes</Text>
                         <Text style={styles.fontRed}>3</Text>
                     </View>
@@ -45,7 +45,7 @@ class StudentCheckInDetailView extends Component {
                         <Text style={styles.name}>Black Belt</Text>
                     </View>
                 </View>
-                <View style={[styles.flexRow,styles.detailWrap]}>
+                <View style={[styles.flexRow, styles.detailWrap]}>
                     <View style={styles.timeWrap}>
                         <View style={styles.flexRow}>
                             <Image style={styles.yesCircle} source={images.yesCircle} />
@@ -61,10 +61,10 @@ class StudentCheckInDetailView extends Component {
                         <Text style={styles.fontBlack}>Master Billy Copy</Text>
                     </View>
                 </View>
-                <View  style={[styles.flexRow,styles.lastWrap]}>
+                <View style={[styles.flexRow, styles.lastWrap]}>
                     <Image style={styles.calendar} source={images.calendar}></Image>
                     <Text style={styles.fontLabel}>3:00PM - 6:00PM  Aug 1, 2018</Text>
-                    <Text style={[styles.fontLabel,styles.lastFont]}>Promot Test</Text>
+                    <Text style={[styles.fontLabel, styles.lastFont]}>Promot Test</Text>
                 </View>
             </TModalView>
         );
@@ -73,9 +73,9 @@ class StudentCheckInDetailView extends Component {
 
 const styles = StyleSheet.create({
     title: {
-        paddingVertical: 13,
+        paddingVertical: 36 / SCALE,
         textAlign: 'center',
-        fontSize: 12,
+        fontSize: 36 / SCALE,
         color: TaekwondoColor.FONT_COLOR,
         fontWeight: '800',
         borderBottomColor: TaekwondoColor.LINE_COLOR,
@@ -84,109 +84,109 @@ const styles = StyleSheet.create({
     flexRow: {
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent:'center'
+        justifyContent: 'center'
     },
     fontBlack: {
         color: TaekwondoColor.FONT_COLOR,
-        fontSize: 9,
+        fontSize: 28 / SCALE,
     },
     fontBlackBold: {
         color: TaekwondoColor.FONT_COLOR,
-        fontSize: 9,
+        fontSize: 28 / SCALE,
         fontWeight: '800'
     },
     fontBlackMedium: {
         color: TaekwondoColor.FONT_COLOR,
-        fontSize: 12,
+        fontSize: 36 / SCALE,
     },
     fontBlackBig: {
         color: TaekwondoColor.FONT_COLOR,
-        fontSize: 14,
+        fontSize: 42 / SCALE,
     },
     fontRed: {
         color: TaekwondoColor.LIGHR_RED,
-        fontSize: 9,
-        position:'absolute',
-        top:0,
-        right:0,
+        fontSize: 27 / SCALE,
+        position: 'absolute',
+        top: 0,
+        right: 0,
     },
     fontRedBig: {
         color: TaekwondoColor.LIGHR_RED,
-        fontSize: 12,
-        marginRight:13,
+        fontSize: 36 / SCALE,
+        marginRight: 40 / SCALE,
     },
     fontLabel: {
         color: TaekwondoColor.FONT_LABEL,
-        fontSize: 9,
+        fontSize: 27 / SCALE,
         fontWeight: '800',
     },
     name: {
         color: 'white',
-        fontSize: 10,
+        fontSize: 30 / SCALE,
     },
     notice: {
-        width: 13,
-        height: 13,
-        marginRight: 7,
+        width: 40 / SCALE,
+        height: 40 / SCALE,
+        marginRight: 21 / SCALE,
     },
     medal: {
-        width: 10,
-        height: 13,
-        marginRight: 4,
+        width: 30 / SCALE,
+        height: 40 / SCALE,
+        marginRight: 12 / SCALE,
     },
     yesCircle: {
-        width: 15,
-        height: 15,
-        marginRight: 7,
+        width: 45 / SCALE,
+        height: 45 / SCALE,
+        marginRight: 21 / SCALE,
     },
     avatarBig: {
-        width: 46,
-        height: 46,
-        borderRadius: 23,
-        marginBottom: 9,
+        width: 142 / SCALE,
+        height: 142 / SCALE,
+        borderRadius: 71 / SCALE,
+        marginBottom: 27 / SCALE,
     },
     avatar: {
-        width: 32,
-        height: 32,
-        borderRadius: 16,
+        width: 96/SCALE,
+        height: 96/SCALE,
+        borderRadius: 48 / SCALE,
     },
     calendar: {
-        width: 13,
-        height: 12,
-        marginRight: 9,
+        width: 39 / SCALE,
+        height: 36 / SCALE,
+        marginRight: 27 / SCALE,
     },
     infoWrap: {
-        height: 40,
+        height: 120 / SCALE,
     },
     avatarBigWrap: {
-        height: 88,
-        backgroundColor:TaekwondoColor.TITLE_BG_COLOR,
+        height: 236 / SCALE,
+        backgroundColor: TaekwondoColor.TITLE_BG_COLOR,
         justifyContent: 'center',
         alignItems: 'center',
     },
-    detailWrap:{
-        height: 70,
+    detailWrap: {
+        height: 210 / SCALE,
         borderBottomColor: TaekwondoColor.LINE_COLOR,
         borderBottomWidth: SMALLEST_BORDER_WIDTH,
     },
-    lastWrap:{
-        height:30,
+    lastWrap: {
+        height: 90 / SCALE,
     },
-    lastFont:{
-        marginLeft: 20,
+    lastFont: {
+        marginLeft: 60 / SCALE,
     },
-    avatarWrap:{
-        marginLeft:57,
+    avatarWrap: {
+        marginLeft: 171 / SCALE,
         alignItems: 'center',
     },
-    timeWrap:{
-        alignItems:'flex-start'
+    timeWrap: {
+        alignItems: 'flex-start'
     },
-    subscriptView:{
-        position:'relative',
-        paddingRight:6,
-        height:22,
-        marginLeft:12,
+    subscriptView: {
+        position: 'relative',
+        paddingRight: 18 / SCALE,
+        height: 66 / SCALE,
+        marginLeft: 36 / SCALE,
     },
 
 
