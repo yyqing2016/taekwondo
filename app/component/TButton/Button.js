@@ -13,8 +13,16 @@ export class Button extends Component {
     render() {
         const { ...others } = this.props
         return (
-            <TouchableOpacity  {...others} style={[styles.button,this.props.full ? styles.buttonFull : styles.buttonNotFull, this.props.wrap ? this.props.wrap : '', this.props.disabled ? styles.disabled : {}, this.props.color ? { backgroundColor: this.props.color } : {},]} >
-                <Text style={[this.props.full ? styles.buttonFullText : styles.buttonNotFullText, { fontSize: this.props.size > 0 ? this.props.size : 14 }, this.props.disabled ? styles.buttonFullText : {}]}>{this.props.title}</Text>
+            <TouchableOpacity  {...others} style={[styles.button, this.props.full ? styles.buttonFull : styles.buttonNotFull,
+            this.props.wrap ? this.props.wrap : '', this.props.disabled ? styles.disabled : {},
+            this.props.color ? { backgroundColor: this.props.color } : {},
+            ]} >
+                <Text style={[this.props.full ? styles.buttonFullText : styles.buttonNotFullText,
+                { fontSize: this.props.size > 0 ? this.props.size : 14 },
+                this.props.disabled ? styles.buttonFullText : {},
+                this.props.fontColor ? { color: this.props.fontColor } : {},
+                this.props.focused ? { fontWeight: '800' } : {}
+                ]}>{this.props.title}</Text>
             </TouchableOpacity>
         );
     }

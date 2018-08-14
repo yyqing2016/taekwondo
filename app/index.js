@@ -21,6 +21,7 @@ import { TaekwondoColor } from './share/styles';
 import images from './assests/images';
 import StudentCheckInDetailView from './component/StudentCheckInDetail/StudentCheckInDetailView';
 import TodoListView from './component/TodoList/TodoListView';
+import TeacherHomeView from './component/TeacherHome/TeacherHomeView'
 
 const MainTabNavigator = TabNavigator({
     home: {
@@ -71,6 +72,7 @@ const MainTabNavigator = TabNavigator({
 )
 
 const MainNavigator = StackNavigator({
+    TeacherHomeView:{screen:TeacherHomeView},
     Home: { screen: MainTabNavigator },
     NFCComponent: { screen: NFCComponent },
     Test: { screen: Test },
