@@ -8,12 +8,13 @@ import {
     Image,
     Dimensions,
     ImageBackground,
-    ScrollView
+    ScrollView,
+    PixelRatio
 } from 'react-native';
 import { connect } from 'react-redux';
 import { TaekwondoColor } from '../../share/styles';
 import images from '../../assests/images';
-import { SCREEN_WIDTH, SCREEN_HEIGHT, SMALLEST_BORDER_WIDTH } from '../../lib/platform';
+import { SCREEN_WIDTH, SCREEN_HEIGHT, SMALLEST_BORDER_WIDTH, SCALE } from '../../lib/platform';
 import { Button } from '../TButton/Button';
 import OngoingClassComponentView from '../OngoingClassComponent/OngoingClassComponentView';
 import UpcomingClassesComponetView from '../UpcomingClassesComponet/UpcomingClassesComponetView';
@@ -31,10 +32,14 @@ class THomeView extends Component {
         super(props);
     }
 
+    componentDidMount(){
+        console.log(PixelRatio.get())
+    }
+
     render() {
         return (
             <View style={{ flex: 1 }}>
-            <StudentCheckInDetailView/>
+            {/* <StudentCheckInDetailView/> */}
                 <ImageBackground style={styles.bg} source={images.homeBgImage}>
                     <View>
                         <View style={styles.tipFontView}>
@@ -81,33 +86,33 @@ class THomeView extends Component {
 const styles = StyleSheet.create({
     bg: {
         width: SCREEN_WIDTH,
-        // height: 95,
+        // height: 308,
         justifyContent: 'space-between',
 
     },
     tipFontView: {
         width: "50%",
         alignSelf: 'flex-end',
-        marginTop: 8,
+        marginTop: 24/SCALE,
         flexDirection: 'row',
         alignItems: 'center',
     },
     topFont: {
-        fontSize: 10,
+        fontSize: 28/SCALE,
         color: 'white',
     },
     tipDate: {
         textAlign: 'center',
         color: TaekwondoColor.MAIN_BLUE,
-        fontSize: 12,
-        paddingBottom: 6,
+        fontSize: 36/SCALE,
+        paddingBottom: 22/SCALE,
     },
     bigTitle: {
         textAlign: 'center',
         color: 'white',
         backgroundColor: TaekwondoColor.TITLE_BG_COLOR,
-        padding: 5,
-        fontSize: 12,
+        padding: 15/SCALE,
+        fontSize: 36/SCALE,
     },
     bigTitleView: {
         backgroundColor: TaekwondoColor.TITLE_BG_COLOR,
@@ -119,30 +124,30 @@ const styles = StyleSheet.create({
     bigTitleFont: {
         textAlign: 'center',
         color: 'white',
-        fontSize: 12,
-        paddingHorizontal: 30,
+        fontSize: 36/SCALE,
+        paddingHorizontal: 90/SCALE,
     },
     bigTitleViewSmallText: {
-        fontSize: 10,
+        fontSize: 30/SCALE,
         textAlign: 'center',
         color: 'white',
     },
     topAddress: {
-        width: 9,
-        height: 11,
-        marginRight: 10,
+        width: 26/SCALE,
+        height: 34/SCALE,
+        marginRight: 28/SCALE,
     },
     topPhone: {
-        width: 11,
-        height: 11,
-        marginRight: 10,
+        width: 34/SCALE,
+        height: 33/SCALE,
+        marginRight: 28/SCALE,
     },
     arrowWrap:{
-        padding:10,
+        padding:10/SCALE,
     },
     arrow: {
-        width: 4,
-        height: 8,
+        width: 12/SCALE,
+        height: 24/SCALE,
     },
 
 

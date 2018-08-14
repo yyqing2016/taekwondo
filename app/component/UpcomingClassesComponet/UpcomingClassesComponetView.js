@@ -12,7 +12,7 @@ import {
 import { connect } from 'react-redux';
 import { TaekwondoColor } from '../../share/styles';
 import images from '../../assests/images';
-import { SCREEN_WIDTH, SCREEN_HEIGHT, SMALLEST_BORDER_WIDTH } from '../../lib/platform';
+import { SCREEN_WIDTH, SCREEN_HEIGHT, SMALLEST_BORDER_WIDTH, SCALE } from '../../lib/platform';
 import { Button } from '../TButton/Button';
 
 class UpcomingClassesComponetView extends Component {
@@ -85,50 +85,50 @@ class UpcomingClassesComponetView extends Component {
 
 const styles = StyleSheet.create({
     upingWrap: {
-        height: 58,
+        height: 172/SCALE,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        marginHorizontal: 12,
+        marginHorizontal: 36/SCALE,
         borderBottomColor: TaekwondoColor.LINE_COLOR,
         borderBottomWidth: SMALLEST_BORDER_WIDTH,
     },
     upingTime: {
-        fontSize: 12,
+        fontSize: 36/SCALE,
         color: TaekwondoColor.FONT_COLOR
     },
     upingTip: {
-        fontSize: 9,
+        fontSize: 28/SCALE,
         color: TaekwondoColor.FONT_TIP
     },
     upingFont: {
-        fontSize: 9,
+        fontSize: 28/SCALE,
         color: TaekwondoColor.FONT_COLOR
     },
     content: {
         alignItems: 'center',
     },
     clockBlue: {
-        width: 11,
-        height: 11,
-        marginRight: 7,
+        width: 32/SCALE,
+        height: 32/SCALE,
+        marginRight: 21/SCALE,
     },
     flexRow: {
         flexDirection: 'row',
         alignItems: 'center',
     },
     avatar: {
-        width: 26,
-        height: 26,
-        borderRadius: 13,
-        marginRight: 4,
+        width: 80/SCALE,
+        height: 80/SCALE,
+        borderRadius: 40/SCALE,
+        marginRight: 13/SCALE,
     },
     arrowDown: {
-        width: 9,
-        height: 5,
+        width: 28/SCALE,
+        height: 15/SCALE,
     },
     arrowDownWrap: {
-        height: 30,
+        height: 90/SCALE,
         justifyContent: 'center',
         alignItems: 'center',
     }

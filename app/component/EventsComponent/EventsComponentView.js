@@ -12,7 +12,7 @@ import {
 import { connect } from 'react-redux';
 import { TaekwondoColor } from '../../share/styles';
 import images from '../../assests/images';
-import { SCREEN_WIDTH, SCREEN_HEIGHT, SMALLEST_BORDER_WIDTH } from '../../lib/platform';
+import { SCREEN_WIDTH, SCREEN_HEIGHT, SMALLEST_BORDER_WIDTH, SCALE } from '../../lib/platform';
 import { Button } from '../TButton/Button';
 
 class EventsComponentView extends Component {
@@ -49,26 +49,26 @@ class EventsComponentView extends Component {
 
 const styles = StyleSheet.create({
     eventsWrap: {
-        height: 44,
+        height: 130/SCALE,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginHorizontal: 12,
+        marginHorizontal: 36/SCALE,
         alignItems: 'center',
         borderBottomColor: TaekwondoColor.LINE_COLOR,
         borderBottomWidth: SMALLEST_BORDER_WIDTH,
     },
     date: {
         color: TaekwondoColor.LIGHR_RED,
-        fontSize: 10,
+        fontSize: 30/SCALE,
         // textAlign:'center'
     },
     font: {
         color: TaekwondoColor.FONT_COLOR,
-        fontSize: 10,
+        fontSize: 30/SCALE,
         // textAlign:'center'
     },
     tip: {
-        fontSize: 10,
+        fontSize: 30/SCALE,
         color: TaekwondoColor.FONT_LABEL,
     },
     fontCenter: {
@@ -79,9 +79,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     address:{
-        width:8,
-        height:9,
-        marginRight: 7,
+        width:24/SCALE,
+        height:27/SCALE,
+        marginRight: 21/SCALE,
     },
 
 });

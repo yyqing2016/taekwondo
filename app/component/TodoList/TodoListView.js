@@ -29,7 +29,7 @@ class TodoListView extends Component {
     render() {
         return (
             <View>
-                {/* <TModalView>
+                <TModalView>
                     <View style={[styles.searchTopWrap, styles.flexRow]}>
                         <View style={[styles.searchTopInputWrap, styles.flexRow]}>
                             <TextInput placeholder='Keyword' underlineColorAndroid='transparent' style={styles.input} />
@@ -55,7 +55,7 @@ class TodoListView extends Component {
                             <Button color={TaekwondoColor.MAIN_GREEN} full title='REVOKE' />
                         </View>
                     </View>
-                </TModalView> */}
+                </TModalView>
                 <View style={[styles.timeWrap]}>
                     <Text style={styles.title}>One Island South</Text>
                     <Text style={styles.secondTitle}>Sparring</Text>

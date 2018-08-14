@@ -12,7 +12,7 @@ import {
 import { connect } from 'react-redux';
 import { TaekwondoColor } from '../../share/styles';
 import images from '../../assests/images';
-import { SCREEN_WIDTH, SCREEN_HEIGHT, SMALLEST_BORDER_WIDTH } from '../../lib/platform';
+import { SCREEN_WIDTH, SCREEN_HEIGHT, SMALLEST_BORDER_WIDTH, SCALE } from '../../lib/platform';
 import { Button } from '../TButton/Button';
 
 class OngoingClassComponentView extends Component {
@@ -30,7 +30,7 @@ class OngoingClassComponentView extends Component {
             <View>
                 <View style={[styles.flexRow, styles.topWrap]}>
                     <View >
-                        <View style={styles.flexRow}>
+                        <View style={[styles.flexRow,styles.timeWrap]}>
                             <Image style={styles.clock} source={images.clock} />
                             <Text style={styles.goingTime}>4:30 - 5:30</Text>
                         </View>
@@ -66,7 +66,7 @@ class OngoingClassComponentView extends Component {
                         <View style={styles.flexRow}>
                             <Image style={styles.yesCircle} source={images.noCircle} />
                             <View style={styles.buttonWrap}>
-                                <Button title='Checked in' full size={9}></Button>
+                                <Button title='Checked in' full size={28/SCALE}></Button>
                             </View>
                         </View>
                     </View>
@@ -80,7 +80,7 @@ class OngoingClassComponentView extends Component {
                         <View style={styles.flexRow}>
                             <Image style={styles.yesCircle} source={images.yesCircle} />
                             <View style={styles.buttonWrap}>
-                                <Button title='Checked in' full size={9}></Button>
+                                <Button title='Checked in' full size={28/SCALE}></Button>
                             </View>
                         </View>
                     </View>
@@ -94,7 +94,7 @@ class OngoingClassComponentView extends Component {
                         <View style={styles.flexRow}>
                             <Image style={styles.yesCircle} source={images.yesCircle} />
                             <View style={styles.buttonWrap}>
-                                <Button title='Checked in' full size={9}></Button>
+                                <Button title='Checked in' full size={28/SCALE}></Button>
                             </View>
                         </View>
                     </View>
@@ -108,7 +108,7 @@ class OngoingClassComponentView extends Component {
                         <View style={styles.flexRow}>
                             <Image style={styles.yesCircle} source={images.yesCircle} />
                             <View style={styles.buttonWrap}>
-                                <Button title='Checked in' full size={9}></Button>
+                                <Button title='Checked in' full size={28/SCALE}></Button>
                             </View>
                         </View>
                     </View>
@@ -124,10 +124,10 @@ class OngoingClassComponentView extends Component {
 
 const styles = StyleSheet.create({
     topWrap: {
-        height: 58,
+        height: 174/SCALE,
         alignItems: 'center',
         justifyContent: 'space-between',
-        paddingHorizontal: 12,
+        paddingHorizontal: 36/SCALE,
         borderBottomColor: TaekwondoColor.LINE_COLOR,
         borderBottomWidth: SMALLEST_BORDER_WIDTH,
     },
@@ -137,92 +137,95 @@ const styles = StyleSheet.create({
     },
     goingTime: {
         color: TaekwondoColor.LIGHR_RED,
-        fontSize: 13,
+        fontSize: 38/SCALE,
     },
     title: {
         color: TaekwondoColor.LIGHR_RED,
-        fontSize: 12,
+        fontSize: 36/SCALE,
     },
     font: {
         color: TaekwondoColor.FONT_COLOR,
-        fontSize: 9,
+        fontSize: 28/SCALE,
     },
     buttonWrap: {
-        width: 74,
-        height: 20,
+        width: 224/SCALE,
+        height: 64/SCALE,
     },
     goingItem: {
-        height: 40,
+        height: 118/SCALE,
         alignItems: 'center',
         justifyContent: 'space-between',
-        marginHorizontal: 12,
+        marginHorizontal: 36/SCALE,
         borderBottomColor: TaekwondoColor.LINE_COLOR,
         borderBottomWidth: SMALLEST_BORDER_WIDTH,
     },
     goingNum: {
         color: TaekwondoColor.FONT_LABEL,
-        fontSize: 9,
-        marginRight: 14,
+        fontSize: 28/SCALE,
+        marginRight: 37/SCALE,
     },
     goingFont: {
         color: TaekwondoColor.FONT_COLOR,
-        fontSize: 9,
+        fontSize: 28/SCALE,
     },
     goingName: {
-        fontSize: 9,
+        fontSize: 28/SCALE,
+    },
+    timeWrap:{
+        marginBottom: 30/SCALE,
     },
     clock: {
-        width: 11,
-        height: 11,
-        marginRight: 4,
+        width: 32/SCALE,
+        height: 32/SCALE,
+        marginRight: 12/SCALE,
     },
     peopleGroup: {
-        width: 11,
-        height: 10,
-        marginRight: 4,
+        width: 32/SCALE,
+        height: 30/SCALE,
+        marginRight: 12/SCALE,
     },
     yes: {
-        width: 9,
-        height: 6,
-        marginRight: 3,
+        width: 27/SCALE,
+        height: 18/SCALE,
+        marginRight: 10/SCALE,
     },
     no: {
-        width: 9,
-        height: 9,
-        marginRight: 3,
+        width: 28/SCALE,
+        height: 28/SCALE,
+        marginRight: 9/SCALE,
     },
     iconSpacing: {
-        marginRight: 10,
+        marginRight: 30/SCALE,
         alignItems: 'center',
     },
     people: {
-        width: 32,
-        height: 32,
-        borderRadius: 16,
+        width: 96/SCALE,
+        height: 96/SCALE,
+        borderRadius: 48/SCALE,
     },
     peopleWrap: {
         alignItems: 'center',
     },
     goingNumTip: {
-        fontSize: 9,
+        fontSize: 28/SCALE,
     },
     yesCircle: {
-        width: 15,
-        height: 15,
-        marginRight: 13,
+        width: 45/SCALE,
+        height: 45/SCALE,
+        marginRight: 39/SCALE,
     },
     listAvatar: {
-        width: 26,
-        height: 26,
-        borderRadius: 13,
-        marginRight: 7,
+        width: 80/SCALE,
+        height: 80/SCALE,
+        borderRadius: 40/SCALE,
+        marginRight: 21/SCALE,
     },
     arrowDown: {
-        width: 9,
-        height: 5,
+        width: 27/SCALE,
+        height: 15/SCALE,
     },
     arrowDownWrap: {
-        height: 30,
+        height: 90/SCALE,
         justifyContent: 'center',
         alignItems: 'center',
     }

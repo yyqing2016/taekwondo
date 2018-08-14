@@ -2,6 +2,7 @@ import {
     Dimensions,
     Platform,
     StyleSheet,
+    PixelRatio
 } from 'react-native'
 import { getDeviceCountry, getDeviceLocale } from 'react-native-device-info'
 
@@ -9,7 +10,8 @@ const SMALLEST_BORDER_WIDTH = StyleSheet.hairlineWidth
 const SCREEN_WIDTH = Dimensions.get('window').width
 const SCREEN_HEIGHT = Dimensions.get('window').height
 const IMAGE_PICKER_ALBUMS = ['UserLibrary', 'PhotoStream', 'RecentlyAdded', 'Screenshots', 'Favorites']
-export { SMALLEST_BORDER_WIDTH, SCREEN_HEIGHT, SCREEN_WIDTH, IMAGE_PICKER_ALBUMS }
+const SCALE = PixelRatio.get()
+export { SMALLEST_BORDER_WIDTH, SCREEN_HEIGHT, SCREEN_WIDTH, IMAGE_PICKER_ALBUMS,SCALE }
 
 // iPhone X 安全区：上44 下34
 export function isIphoneX() {

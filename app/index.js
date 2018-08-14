@@ -25,7 +25,7 @@ import TeacherHomeView from './component/TeacherHome/TeacherHomeView'
 
 const MainTabNavigator = TabNavigator({
     home: {
-        screen: HomeView,
+        screen: TeacherHomeView,
         navigationOptions: ({ navigation, pthis }) => (
             // console.log(navigation),
             {
@@ -72,11 +72,13 @@ const MainTabNavigator = TabNavigator({
 )
 
 const MainNavigator = StackNavigator({
-    TeacherHomeView:{screen:TeacherHomeView},
+    // TeacherHomeView:{screen:TeacherHomeView},
+    TLoginView: { screen: TLoginView },
+    HomeView: { screen: HomeView },
     Home: { screen: MainTabNavigator },
     NFCComponent: { screen: NFCComponent },
     Test: { screen: Test },
-    TLoginView: { screen: TLoginView },
+   
     // LoginByUserNameView:{screen:LoginByUserNameView},
     // THomeView: { screen: THomeView },
     // ProfileView:{screen:ProfileView},

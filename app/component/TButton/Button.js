@@ -4,6 +4,7 @@ import { TouchableOpacity, StyleSheet, Text } from 'react-native';
 import { TaekwondoColor } from '../../share/styles'
 
 import { connect } from 'react-redux';
+import { SCALE } from '../../lib/platform';
 
 export class Button extends Component {
     constructor(props) {
@@ -31,9 +32,8 @@ export class Button extends Component {
 const styles = StyleSheet.create({
     button: {
         flex: 1,
-        height: 44,
-        borderRadius: 2,
-        maxHeight: 44,
+        height: 128/SCALE,
+        borderRadius: 6/SCALE,
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
