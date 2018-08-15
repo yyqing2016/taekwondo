@@ -5,6 +5,9 @@ export default {
     state: {
         loading: false,
         currentStudentCheckInId: '',
+        events: [],
+        ongoingClasses: [],
+        upComingClasses: [],
     },
     effects: {
         *checkIn({ payload = {} }, { call, put, select }) {
@@ -13,9 +16,11 @@ export default {
                 yield put({ type: 'loading', payload: true });
                 const { data, err } = yield call(request.checkIn, { cardId: currentStudentCheckInId, classInstanceId: 356, checkinTime: new Date() });
                 yield put({ type: 'loading', payload: false });
-                console.log(data);
-                console.log(err)
+                if (data) {
+                    console.log(data)
+                }
                 if (err) {
+                    console.log(err)
                     // .... 错误处理
                     return;
                 }

@@ -29,20 +29,21 @@ class NFCComponent extends Component {
     }
 
     componentWillUnmount() {
-        // if (this._stateChangedSubscription) {
-        //     this._stateChangedSubscription.remove();
-        // }
-        // this._stopDetection()
+        if (this._stateChangedSubscription) {
+            this._stateChangedSubscription.remove();
+        }
+        this._stopDetection()
     }
+
 
     render() {
         return (
-            <View>
-                <ScrollView>
+            <View style={{width:1,height:1,}}>
+                {/* <ScrollView>
                     <TouchableOpacity style={{ marginTop: 20 }} onPress={this._goToNfcSetting}>
                         <Text >(android) Go to NFC setting</Text>
                     </TouchableOpacity>
-                </ScrollView>
+                </ScrollView> */}
             </View>
 
         )
@@ -106,10 +107,9 @@ class NFCComponent extends Component {
                     console.warn(err);
                 })
         }
-
         let text = this._parseText(tag);
         this.setState({ parsedText: text });
-        this._stopDetection()
+        // this._stopDetection()
     }
 
     _startDetection = () => {

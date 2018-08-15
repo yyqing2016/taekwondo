@@ -18,12 +18,13 @@ export default {
             if(data){
                 console.log(data);
                 console.log(NavigationActions)
-                // yield put(NavigationActions.reset({
-                //     index: 0,
-                //     actions: [
-                //         NavigationActions.navigate({ routeName: 'THomeView' })
-                //     ]
-                // }));
+                    if (data.events && data.events.length > 0) {
+                    console.log("ffff",data.events)
+                        yield put({ type: 'home/updateProps', payload: { events: data.events } });
+                    }
+                    if (data.classes && data.classes.length > 0) {
+                        console.log(data.classes)
+                }
                 let resetAction = NavigationActions.reset({
                     index: 0,
                     actions: [

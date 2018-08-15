@@ -15,7 +15,6 @@ import THomeView from './component/Home/HomeView'
 // import ProfileView from './component/Profile/ProfileView'
 import Test from './component/Test'
 import NFCComponent from './common/NFCComponent'
-import HomeView from './component/Home/HomeView';
 import ProfileView from './component/Profile/ProfileView';
 import TabBarItem from './component/TabBarItem/TabBarItemView'
 import { TaekwondoColor } from './share/styles';
@@ -104,9 +103,9 @@ class RootScene extends PureComponent {
         const { dispatch, router } = this.props;
         const navigation = addNavigationHelpers({ dispatch, state: router })
         return (
-            // <View>
+            <View style={{flex:1}}>
                 <MainNavigator />
-            // </View>
+            </View>
 
         )
     }
