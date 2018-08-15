@@ -7,7 +7,8 @@ import {
     TouchableOpacity,
     Image,
     Dimensions,
-    ImageBackground
+    ImageBackground,
+    ScrollView
 } from 'react-native';
 import { connect } from 'react-redux';
 import { TaekwondoColor } from '../../share/styles';
@@ -30,7 +31,7 @@ class EventsComponentView extends Component {
     render() {
         console.log("dfasd", this.props.events)
         return (
-            <View>
+            <ScrollView style={styles.eventsItemwrap}>
                 {this.props.events && this.props.events.length > 0 && this.props.events.map((event) => (
                     <View style={styles.eventsWrap} key={event.id}>
                         <View>
@@ -48,7 +49,7 @@ class EventsComponentView extends Component {
                         <View style={styles.line} />
                     </View>
                 ))}
-            </View>
+            </ScrollView>
 
 
         );
@@ -56,6 +57,11 @@ class EventsComponentView extends Component {
 }
 
 const styles = StyleSheet.create({
+    eventsItemwrap:{
+        height: 260/SCALE,
+        borderWidth:1,
+        maxHeight: 260/SCALE,
+    },
     eventsWrap: {
         height: 130 / SCALE,
         flexDirection: 'row',

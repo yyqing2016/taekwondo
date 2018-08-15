@@ -7,7 +7,8 @@ import {
     TouchableOpacity,
     Image,
     Dimensions,
-    ImageBackground
+    ImageBackground,
+    ScrollView
 } from 'react-native';
 import { connect } from 'react-redux';
 import { TaekwondoColor } from '../../share/styles';
@@ -27,52 +28,54 @@ class UpcomingClassesComponetView extends Component {
 
     render() {
         return (
-            <View>
-                <View style={styles.upingWrap}>
-                    <View style={styles.flexRow}>
-                        <Image style={styles.clockBlue} source={images.clockBlue} />
-                        <Text style={styles.upingTime}>5:30 - 6:30</Text>
+            <View style={{flex:1,}}>
+                <ScrollView style={{flex:1,}}>
+                    <View style={styles.upingWrap}>
+                        <View style={styles.flexRow}>
+                            <Image style={styles.clockBlue} source={images.clockBlue} />
+                            <Text style={styles.upingTime}>5:30 - 6:30</Text>
+                        </View>
+                        <View style={styles.content}>
+                            <Text style={styles.upingTip}>Room 1</Text>
+                            <Text style={styles.upingFont}>Sparrings Class</Text>
+                            <Text style={styles.upingTip}>6 People</Text>
+                        </View>
+                        <View style={styles.flexRow}>
+                            <Image style={styles.avatar} source={images.avatar1} />
+                            <Text style={styles.upingFont}>Kylie Wong Copy 4</Text>
+                        </View>
                     </View>
-                    <View style={styles.content}>
-                        <Text style={styles.upingTip}>Room 1</Text>
-                        <Text style={styles.upingFont}>Sparrings Class</Text>
-                        <Text style={styles.upingTip}>6 People</Text>
+                    <View style={styles.upingWrap}>
+                        <View style={styles.flexRow}>
+                            <Image style={styles.clockBlue} source={images.clockBlue} />
+                            <Text style={styles.upingTime}>5:30 - 6:30</Text>
+                        </View>
+                        <View style={styles.content}>
+                            <Text style={styles.upingTip}>Room 1</Text>
+                            <Text style={styles.upingFont}>Sparrings Class</Text>
+                            <Text style={styles.upingTip}>6 People</Text>
+                        </View>
+                        <View style={styles.flexRow}>
+                            <Image style={styles.avatar} source={images.avatar1} />
+                            <Text style={styles.upingFont}>Kylie Wong Copy 4</Text>
+                        </View>
                     </View>
-                    <View style={styles.flexRow}>
-                        <Image style={styles.avatar} source={images.avatar1} />
-                        <Text style={styles.upingFont}>Kylie Wong Copy 4</Text>
+                    <View style={styles.upingWrap}>
+                        <View style={styles.flexRow}>
+                            <Image style={styles.clockBlue} source={images.clockBlue} />
+                            <Text style={styles.upingTime}>5:30 - 6:30</Text>
+                        </View>
+                        <View style={styles.content}>
+                            <Text style={styles.upingTip}>Room 1</Text>
+                            <Text style={styles.upingFont}>Sparrings Class</Text>
+                            <Text style={styles.upingTip}>6 People</Text>
+                        </View>
+                        <View style={styles.flexRow}>
+                            <Image style={styles.avatar} source={images.avatar1} />
+                            <Text style={styles.upingFont}>Kylie Wong Copy 4</Text>
+                        </View>
                     </View>
-                </View>
-                <View style={styles.upingWrap}>
-                    <View style={styles.flexRow}>
-                        <Image style={styles.clockBlue} source={images.clockBlue} />
-                        <Text style={styles.upingTime}>5:30 - 6:30</Text>
-                    </View>
-                    <View style={styles.content}>
-                        <Text style={styles.upingTip}>Room 1</Text>
-                        <Text style={styles.upingFont}>Sparrings Class</Text>
-                        <Text style={styles.upingTip}>6 People</Text>
-                    </View>
-                    <View style={styles.flexRow}>
-                        <Image style={styles.avatar} source={images.avatar1} />
-                        <Text style={styles.upingFont}>Kylie Wong Copy 4</Text>
-                    </View>
-                </View>
-                <View style={styles.upingWrap}>
-                    <View style={styles.flexRow}>
-                        <Image style={styles.clockBlue} source={images.clockBlue} />
-                        <Text style={styles.upingTime}>5:30 - 6:30</Text>
-                    </View>
-                    <View style={styles.content}>
-                        <Text style={styles.upingTip}>Room 1</Text>
-                        <Text style={styles.upingFont}>Sparrings Class</Text>
-                        <Text style={styles.upingTip}>6 People</Text>
-                    </View>
-                    <View style={styles.flexRow}>
-                        <Image style={styles.avatar} source={images.avatar1} />
-                        <Text style={styles.upingFont}>Kylie Wong Copy 4</Text>
-                    </View>
-                </View>
+                </ScrollView>
                 <View style={styles.arrowDownWrap}>
                     <Image style={styles.arrowDown} source={images.arrowDown} />
                 </View>
@@ -85,50 +88,50 @@ class UpcomingClassesComponetView extends Component {
 
 const styles = StyleSheet.create({
     upingWrap: {
-        height: 172/SCALE,
+        height: 172 / SCALE,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        marginHorizontal: 36/SCALE,
+        marginHorizontal: 36 / SCALE,
         borderBottomColor: TaekwondoColor.LINE_COLOR,
         borderBottomWidth: SMALLEST_BORDER_WIDTH,
     },
     upingTime: {
-        fontSize: 36/SCALE,
+        fontSize: 36 / SCALE,
         color: TaekwondoColor.FONT_COLOR
     },
     upingTip: {
-        fontSize: 28/SCALE,
+        fontSize: 28 / SCALE,
         color: TaekwondoColor.FONT_TIP
     },
     upingFont: {
-        fontSize: 28/SCALE,
+        fontSize: 28 / SCALE,
         color: TaekwondoColor.FONT_COLOR
     },
     content: {
         alignItems: 'center',
     },
     clockBlue: {
-        width: 32/SCALE,
-        height: 32/SCALE,
-        marginRight: 21/SCALE,
+        width: 32 / SCALE,
+        height: 32 / SCALE,
+        marginRight: 21 / SCALE,
     },
     flexRow: {
         flexDirection: 'row',
         alignItems: 'center',
     },
     avatar: {
-        width: 80/SCALE,
-        height: 80/SCALE,
-        borderRadius: 40/SCALE,
-        marginRight: 13/SCALE,
+        width: 80 / SCALE,
+        height: 80 / SCALE,
+        borderRadius: 40 / SCALE,
+        marginRight: 13 / SCALE,
     },
     arrowDown: {
-        width: 28/SCALE,
-        height: 15/SCALE,
+        width: 28 / SCALE,
+        height: 15 / SCALE,
     },
     arrowDownWrap: {
-        height: 90/SCALE,
+        height: 90 / SCALE,
         justifyContent: 'center',
         alignItems: 'center',
     }

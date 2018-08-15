@@ -60,8 +60,8 @@ class THomeView extends Component {
                     </View>
                     <Text style={styles.tipDate}>Monday ,  Jan 1, 2018</Text>
                 </ImageBackground>
-                <ScrollView style={{ flex: 1 }}>
-                    <View>
+                <View style={{ flex: 1 }}>
+                    {/* <View> */}
                         <Text style={styles.bigTitle}>Events</Text>
                         <EventsComponentView events={this.props.events} />
                         <View style={styles.bigTitleView}>
@@ -79,8 +79,8 @@ class THomeView extends Component {
                         <OngoingClassComponentView />
                         <Text style={styles.bigTitle}>Upcoming Classes</Text>
                         <UpcomingClassesComponetView />
-                    </View>
-                </ScrollView>
+                    {/* </View> */}
+                </View>
             </View>
 
 
