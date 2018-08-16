@@ -9,7 +9,8 @@ import {
     Dimensions,
     ImageBackground,
     ScrollView,
-    PixelRatio
+    PixelRatio,
+    NetInfo
 } from 'react-native';
 import { connect } from 'react-redux';
 import { TaekwondoColor } from '../../share/styles';
@@ -32,7 +33,28 @@ class THomeView extends Component {
 
     componentDidMount() {
         this.props.checkIn()
+        NetInfo.isConnected.addEventListener(
+            'change',
+            this._handleConnectivityChange
+        );
+        NetInfo.isConnected.fetch().done(
+            (isConnected) => { console.log("&&&&&&&"+isConnected)}
+        );
+
     }
+
+    _handleConnectivityChange(isConnected) {
+       console.log("************",isConnected)
+      }
+      
+    componentWillUnmount() {
+        NetInfo.isConnected.removeEventListener(
+            'change',
+            this._handleConnectivityChange
+        );
+    }
+
+
 
     async doCheckIn(id) {
         if (!!id) {
@@ -62,23 +84,23 @@ class THomeView extends Component {
                 </ImageBackground>
                 <View style={{ flex: 1 }}>
                     {/* <View> */}
-                        <Text style={styles.bigTitle}>Events</Text>
-                        <EventsComponentView events={this.props.events} />
-                        <View style={styles.bigTitleView}>
-                            <View style={styles.arrowWrap}>
-                                <Image style={styles.arrow} source={images.arrowLeft} />
-                            </View>
-                            <View>
-                                <Text style={styles.bigTitleFont}>Ongoing Class</Text>
-                                <Text style={styles.bigTitleViewSmallText}>Room 1</Text>
-                            </View>
-                            <View style={styles.arrowWrap}>
-                                <Image style={styles.arrow} source={images.arrowRight} />
-                            </View>
+                    <Text style={styles.bigTitle}>Events</Text>
+                    <EventsComponentView events={this.props.events} />
+                    <View style={styles.bigTitleView}>
+                        <View style={styles.arrowWrap}>
+                            <Image style={styles.arrow} source={images.arrowLeft} />
                         </View>
-                        <OngoingClassComponentView />
-                        <Text style={styles.bigTitle}>Upcoming Classes</Text>
-                        <UpcomingClassesComponetView />
+                        <View>
+                            <Text style={styles.bigTitleFont}>Ongoing Class</Text>
+                            <Text style={styles.bigTitleViewSmallText}>Room 1</Text>
+                        </View>
+                        <View style={styles.arrowWrap}>
+                            <Image style={styles.arrow} source={images.arrowRight} />
+                        </View>
+                    </View>
+                    <OngoingClassComponentView />
+                    <Text style={styles.bigTitle}>Upcoming Classes</Text>
+                    <UpcomingClassesComponetView />
                     {/* </View> */}
                 </View>
             </View>
