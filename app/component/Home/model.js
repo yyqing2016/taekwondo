@@ -8,13 +8,14 @@ export default {
         events: [],
         ongoingClasses: [],
         upComingClasses: [],
+        classes:[],
     },
     effects: {
         *checkIn({ payload = {} }, { call, put, select }) {
             const { currentStudentCheckInId } = yield select(state => state.home);
             if (!!currentStudentCheckInId) {
                 yield put({ type: 'loading', payload: true });
-                const { data, err } = yield call(request.checkIn, { cardId: currentStudentCheckInId, classInstanceId: 356, checkinTime: new Date() });
+                const { data, err } = yield call(request.checkIn, { data: [{ cardId: currentStudentCheckInId, classInstanceId: 356, checkinTime: new Date() }] });
                 yield put({ type: 'loading', payload: false });
                 if (data) {
                     console.log(data)

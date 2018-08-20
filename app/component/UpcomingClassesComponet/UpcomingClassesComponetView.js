@@ -75,10 +75,40 @@ class UpcomingClassesComponetView extends Component {
                             <Text style={styles.upingFont}>Kylie Wong Copy 4</Text>
                         </View>
                     </View>
+                    <View style={styles.upingWrap}>
+                        <View style={styles.flexRow}>
+                            <Image style={styles.clockBlue} source={images.clockBlue} />
+                            <Text style={styles.upingTime}>5:30 - 6:30</Text>
+                        </View>
+                        <View style={styles.content}>
+                            <Text style={styles.upingTip}>Room 1</Text>
+                            <Text style={styles.upingFont}>Sparrings Class</Text>
+                            <Text style={styles.upingTip}>6 People</Text>
+                        </View>
+                        <View style={styles.flexRow}>
+                            <Image style={styles.avatar} source={images.avatar1} />
+                            <Text style={styles.upingFont}>Kylie Wong Copy 4</Text>
+                        </View>
+                    </View>
+                    <View style={styles.upingWrap}>
+                        <View style={styles.flexRow}>
+                            <Image style={styles.clockBlue} source={images.clockBlue} />
+                            <Text style={styles.upingTime}>5:30 - 6:30</Text>
+                        </View>
+                        <View style={styles.content}>
+                            <Text style={styles.upingTip}>Room 1</Text>
+                            <Text style={styles.upingFont}>Sparrings Class</Text>
+                            <Text style={styles.upingTip}>6 People</Text>
+                        </View>
+                        <View style={styles.flexRow}>
+                            <Image style={styles.avatar} source={images.avatar1} />
+                            <Text style={styles.upingFont}>Kylie Wong Copy 4</Text>
+                        </View>
+                    </View>
                 </ScrollView>
-                <View style={styles.arrowDownWrap}>
+                {/* <View style={styles.arrowDownWrap}>
                     <Image style={styles.arrowDown} source={images.arrowDown} />
-                </View>
+                </View> */}
             </View>
 
 

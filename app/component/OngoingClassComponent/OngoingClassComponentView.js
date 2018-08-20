@@ -119,9 +119,9 @@ class OngoingClassComponentView extends Component {
             </View>
           </View>
         </ScrollView>
-        <View style={styles.arrowDownWrap}>
+        {/* <View style={styles.arrowDownWrap}>
           <Image style={styles.arrowDown} source={images.arrowDown} />
-        </View>
+        </View> */}
       </View>
     );
   }
